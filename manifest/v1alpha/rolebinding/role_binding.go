@@ -2,6 +2,7 @@ package rolebinding
 
 import (
 	"github.com/nobl9/nobl9-go/manifest"
+	"github.com/nobl9/nobl9-go/manifest/v1alpha"
 )
 
 //go:generate go run ../../../internal/cmd/objectimpl RoleBinding
@@ -28,6 +29,9 @@ type RoleBinding struct {
 
 type Metadata struct {
 	Name string `json:"name"`
+	// DisplayName allows defining a more human-readable name for the RoleBinding.
+	DisplayName string         `json:"displayName,omitempty"`
+	Labels      v1alpha.Labels `json:"labels,omitempty"`
 }
 
 type Spec struct {
